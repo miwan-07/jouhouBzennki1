@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<style type="text/css">
+html,body{
+	margin:0;
+}
+
+.movs{
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.btn1{
+    margin-right: auto;
+}
+
+.btn2{
+    margin-left: auto;
+}
+</style>
+<script>
+var videoElem;
+
+onload = function(){
+	sizeChosei();
+	$(window).resize(function(){
+		sizeChosei();
+	});
+	
+	videoElem = document.getElementById('movs');
+	
+	document.addEventListener('keydown', keydown_ivent);
+	
+	setInterval(loop, 42);
+}
+
+function sizeChosei(){
+	$("html").css({"font-size":(window.innerWidth/100)+"px"});
+}
+
+function loop(){
+	//console.log(videoElem.currentTime);
+}
+
+function keydown_ivent(e) {
+//	console.log(e.key);
+	if(3.08 <= videoElem.currentTime && videoElem.currentTime < 3.54){
+		if(e.key == "ArrowRight"){
+			console.log("migi: "+videoElem.currentTime);
+			let now = videoElem.currentTime;
+			videoElem.src = "movs/sippai2.mp4";
+			videoElem.currentTime = now;
+		}else if(e.key == "ArrowLeft"){
+			console.log("movs/hidari: "+videoElem.currentTime);
+			let now = videoElem.currentTime;
+			videoElem.src = "movs/sippai1-2.mp4";
+			videoElem.currentTime = now;
+		}
+	}
+
+
+	if(16.00 <= videoElem.currentTime && videoElem.currentTime < 16.41){
+		if(e.key == "ArrowRight"){
+			console.log("migi: "+videoElem.currentTime);
+			let now = videoElem.currentTime;
+			videoElem.src = "movs/sippai2-2.mp4";
+			videoElem.currentTime = now;
+        }else if(e.key == "ArrowLeft"){
+		    console.log("movs/hidari: "+videoElem.currentTime);
+			let now = videoElem.currentTime;
+			videoElem.src = "movs/sippai3.mp4";
+			videoElem.currentTime = now;
+		}
+    }
+
+    if(29.45 <= videoElem.currentTime && videoElem.currentTime < 29.95){
+		if(e.key == "ArrowRight"){
+			console.log("migi: "+videoElem.currentTime);
+			let now = videoElem.currentTime;
+			videoElem.src = "movs/sippai3-2.mp4";
+			videoElem.currentTime = now;
+        }else if(e.key == "ArrowLeft"){
+		    console.log("movs/hidari: "+videoElem.currentTime);
+			let now = videoElem.currentTime;
+			videoElem.src = "movs/seikou.mp4";
+			videoElem.currentTime = now;
+		}
+    }
+	
+	return false; 
+}
+
+</script>
+</head>
+<body>
+<video class="movs" id="movs" src="movs/sippai1.mp4" autoplay muted></video>
+</body>
+</html>
