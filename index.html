@@ -33,7 +33,7 @@ onload = function(){
 	
 	videoElem = document.getElementById('movs');
 	
-	document.addEventListener('keydown', keydown_ivent);
+	document.addEventListener('click', clickDisplayAlert);
 	
 	setInterval(loop, 42);
 }
@@ -50,30 +50,27 @@ function loop(){
 	//console.log(videoElem.currentTime);
 }
 
-function keydown_ivent(e) {
-//	console.log(e.key);
+function clickDisplayAlert(num) {
 	if(3.08 <= videoElem.currentTime && videoElem.currentTime < 3.54){
-		if(e.key == "ArrowRight"){
-			console.log("migi: "+videoElem.currentTime);
+        if (num === 2) {
+            console.log("migi: "+videoElem.currentTime);
 			let now = videoElem.currentTime;
 			videoElem.src = "movs/sippai2.mp4";
 			videoElem.currentTime = now;
-		}else if(e.key == "ArrowLeft"){
-			console.log("movs/hidari: "+videoElem.currentTime);
+        } else if (num == 1 ) {
+            console.log("movs/hidari: "+videoElem.currentTime);
 			let now = videoElem.currentTime;
 			videoElem.src = "movs/sippai1-2.mp4";
 			videoElem.currentTime = now;
-		}
-	}
-
-
-	if(16.00 <= videoElem.currentTime && videoElem.currentTime < 16.41){
-		if(e.key == "ArrowRight"){
+        } 
+    }
+    if(16.00 <= videoElem.currentTime && videoElem.currentTime < 16.41){
+		if(num === 2){
 			console.log("migi: "+videoElem.currentTime);
 			let now = videoElem.currentTime;
 			videoElem.src = "movs/sippai2-2.mp4";
 			videoElem.currentTime = now;
-        }else if(e.key == "ArrowLeft"){
+        }else if(num == 1 ){
 		    console.log("movs/hidari: "+videoElem.currentTime);
 			let now = videoElem.currentTime;
 			videoElem.src = "movs/sippai3.mp4";
@@ -82,12 +79,12 @@ function keydown_ivent(e) {
     }
 
     if(29.45 <= videoElem.currentTime && videoElem.currentTime < 29.95){
-		if(e.key == "ArrowRight"){
+		if(num == 2 ){
 			console.log("migi: "+videoElem.currentTime);
 			let now = videoElem.currentTime;
 			videoElem.src = "movs/sippai3-2.mp4";
 			videoElem.currentTime = now;
-        }else if(e.key == "ArrowLeft"){
+        }else if(num == 1 ){
 		    console.log("movs/hidari: "+videoElem.currentTime);
 			let now = videoElem.currentTime;
 			videoElem.src = "movs/seikou.mp4";
@@ -98,18 +95,19 @@ function keydown_ivent(e) {
 	return false; 
 }
 
+
 </script>
 </head>
 <body>
 　<ol>
 　　<li>トンネルから外れないようにゴールまでたどり着くようにする。</li>
-　　<li>右、左の２つの方向キーで、正しい分岐を選ぶ。</li>
-　　<li>正しい分岐を選ぶためにはキーを押すタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかのキーを押すと行先が変更される。</li>
-　　<li>初めからやり直すには、更新ボタンを押す。なお、映像は自動再生のため注意。</li>
+　　<li>「←」「→」の２つのボタンをダブルクリックして、正しい分岐を選ぶ。</li>
+　　<li>正しい分岐を選ぶためにはダブルクリックするタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかをダブルクリックすると行先が変更される。</li>
+　　<li>初めからやり直すには、「やり直す」ボタンを押す。なお、映像は自動再生のため注意。</li>
 　</ol>
-<input type="button"  value="更新" onclick="koushin()">
-<div id="text-button1" onclick="clickDisplayAlert(1)">Click1</div>
-<div id="text-button2" onclick="clickDisplayAlert(2)">Click2</div>
+<input type="button"  value="やり直す" onclick="koushin()">
+<input type="button"  value="←" onclick="clickDisplayAlert(1)">
+<input type="button"  value="→" onclick="clickDisplayAlert(2)">
 <video class="movs" id="movs" src="movs/sippai1.mp4" autoplay muted></video>
 </body>
 </html>
