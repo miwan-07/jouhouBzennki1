@@ -14,40 +14,49 @@ html,body{
 	margin:0;
 }
 
-.body {
-        font-size: 20px;
-    }
-
-.movs{
-	display: flex;
+.hako{
+	
 	position: relative;
 	left: 0;
 	top: 0;
 	width: 100%;
 }
 
+.hako video{
+	
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
 
+.hako button{
+	position: relative;
+	width: 100%;
+	top: 50%;
+}
 
 #hidari{
   width:80px;height:80px;
-  position:absolute;left:20px;bottom:40px;/*親要素に対する位置指定*/
-  cursor:pointer;/*カーソルを指に変更*/
+  position:absolute;left:20px;
   z-index:1;
+  top: 50%;
 }
 
 
 #migi{
   width:80px;height:80px;
-  position:absolute;right:20px;bottom:40px;/*親要素に対する位置指定*/
-  cursor:pointer;/*カーソルを指に変更*/
+  position:absolute;
+  right:20px;
   z-index:1;
+  top: 50%;
 }
 
 #koushin{
 	display: block;
 	width:80px;height:80px;
 	margin: auto;
-  cursor:pointer;/*カーソルを指に変更*/
+  cursor:pointer;
   z-index:1;
 }
 
@@ -63,7 +72,7 @@ onload = function(){
 	
 	videoElem = document.getElementById('movs');
 	
-	document.addEventListener('click', clickDisplayAlert);
+	document.addEventListener('click', clickDisplay);
 	
 	setInterval(loop, 42);
 }
@@ -80,7 +89,7 @@ function loop(){
 	//console.log(videoElem.currentTime);
 }
 
-function clickDisplayAlert(num) {
+function clickDisplay(num) {
 	if(3.08 <= videoElem.currentTime && videoElem.currentTime < 3.54){
         if (num === 2) {
             console.log("migi: "+videoElem.currentTime);
@@ -129,18 +138,13 @@ function clickDisplayAlert(num) {
 </script>
 </head>
 <body>
-  <h1>Ver.2</h1>
-　<ol class="body">
-　　<li>トンネルから外れないようにゴールまでたどり着くようにする。</li>
-　　<li>「←」「→」の２つのボタンをダブルクリックして、正しい分岐を選ぶ。</li>
-　　<li>正しい分岐を選ぶためにはダブルクリックするタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかをダブルクリックすると行先が変更される。</li>
-　　<li>初めからやり直すには、「やり直す」ボタンを押す。なお、映像は自動再生のため注意。</li>
-　</ol>
+<div id="hako" class="hako">
  <video id="movs" class="movs" src="movs/sippai1.mp4" autoplay muted></video>
-  <div>
-   <input id="hidari" class="button" type="button"  value="←" onclick="clickDisplayAlert(1)">
-   <input id="migi" class="button" type="button"  value="→" onclick="clickDisplayAlert(2)">
-  </div>
+  <span id="button" class="button">
+   <input id="hidari"  type="button"  value="←" onclick="clickDisplay(1)">
+   <input id="migi"  type="button"  value="→" onclick="clickDisplay(2)">
+  </span>
+</div>
 <input id="koushin" type="button"  value="やり直す" onclick="koushin()">
 </body>
 </html>
