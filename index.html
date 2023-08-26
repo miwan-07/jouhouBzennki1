@@ -50,22 +50,6 @@ function loop(){
 	//console.log(videoElem.currentTime);
 }
 
-function clickDisplayAlert(num) {
-	if(3.08 <= videoElem.currentTime && videoElem.currentTime < 3.54){
-        if (num === 1) {
-            console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-			videoElem.src = "movs/sippai2.mp4";
-			videoElem.currentTime = now;
-        } else if (num == 2 ) {
-            console.log("movs/hidari: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-			videoElem.src = "movs/sippai1-2.mp4";
-			videoElem.currentTime = now;
-        } 
-    }
-}
-
 function keydown_ivent(e) {
 //	console.log(e.key);
 	if(3.08 <= videoElem.currentTime && videoElem.currentTime < 3.54){
