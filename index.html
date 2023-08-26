@@ -19,11 +19,13 @@ html,body{
     }
 
 .movs{
+	display: flex;
 	position: relative;
 	left: 0;
 	top: 0;
 	width: 100%;
 }
+
 
 
 #hidari{
@@ -135,8 +137,10 @@ function clickDisplayAlert(num) {
 　　<li>初めからやり直すには、「やり直す」ボタンを押す。なお、映像は自動再生のため注意。</li>
 　</ol>
  <video id="movs" class="movs" src="movs/sippai1.mp4" autoplay muted></video>
+  <div>
    <input id="hidari" class="button" type="button"  value="←" onclick="clickDisplayAlert(1)">
    <input id="migi" class="button" type="button"  value="→" onclick="clickDisplayAlert(2)">
+  </div>
 <input id="koushin" type="button"  value="やり直す" onclick="koushin()">
 </body>
 </html>
