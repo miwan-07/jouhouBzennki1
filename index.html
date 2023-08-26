@@ -21,6 +21,29 @@ html,body{
 	width: 100%;
 }
 
+
+#hidari{
+  width:80px;height:80px;
+  position:absolute;left:20px;bottom:40px;/*親要素に対する位置指定*/
+  cursor:pointer;/*カーソルを指に変更*/
+  z-index:1;
+}
+
+
+#migi{
+  width:80px;height:80px;
+  position:absolute;right:20px;bottom:40px;/*親要素に対する位置指定*/
+  cursor:pointer;/*カーソルを指に変更*/
+  z-index:1;
+}
+
+.koushin{
+	width:80px;height:80px;
+  position:absolute;right:20px;bottom:40px;/*親要素に対する位置指定*/
+  cursor:pointer;/*カーソルを指に変更*/
+  z-index:1;
+}
+
 </style>
 <script>
 var videoElem;
@@ -99,15 +122,16 @@ function clickDisplayAlert(num) {
 </script>
 </head>
 <body>
+  <h1>Ver.2</h1>
 　<ol>
 　　<li>トンネルから外れないようにゴールまでたどり着くようにする。</li>
-　　<li>「←」「→」の２つのボタンをダブルクリックして、正しい分岐を選ぶ。</li>
-　　<li>正しい分岐を選ぶためにはダブルクリックするタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかをダブルクリックすると行先が変更される。</li>
+　　<li>「←」「→」の２つのボタンをクリックして、正しい分岐を選ぶ。</li>
+　　<li>正しい分岐を選ぶためにはクリックするタイミングが重要。分岐先の様子が見えた直後、一定の間速度が落ちる。この間にいずれかをクリックすると行先が変更される。</li>
 　　<li>初めからやり直すには、「やり直す」ボタンを押す。なお、映像は自動再生のため注意。</li>
 　</ol>
-<input type="button"  value="やり直す" onclick="koushin()">
-<input type="button"  value="←" onclick="clickDisplayAlert(1)">
-<input type="button"  value="→" onclick="clickDisplayAlert(2)">
-<video class="movs" id="movs" src="movs/sippai1.mp4" autoplay muted></video>
+ <video id="movs" class="movs" src="movs/sippai1.mp4" autoplay muted></video>
+   <input id="hidari" class="button" type="button"  value="←" onclick="clickDisplayAlert(1)">
+   <input id="migi" class="button" type="button"  value="→" onclick="clickDisplayAlert(2)">
+<input id="koushin" type="button"  value="やり直す" onclick="koushin()">
 </body>
 </html>
