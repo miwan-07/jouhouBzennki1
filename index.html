@@ -90,7 +90,6 @@ html,body{
 </style>
 <script>
 
-
 var videoElem;
 
 onload = function(){
@@ -106,7 +105,9 @@ onload = function(){
 	setInterval(loop, 42);
 }
 
-
+function koushin(){
+  location.reload();
+}
 	
 function sizeChosei(){
 	$("html").css({"font-size":(window.innerWidth/100)+"px"});
@@ -141,6 +142,8 @@ function getmovs(){
   console.log(a)
   console.log(b)
   xx = 0;
+
+  document.getElementById("img").src = "movs5/back.JPG";
 }
 
 
@@ -412,23 +415,13 @@ function clickDisplay(num) {
 }
 
 
-function koushin(){
-  location.reload();
-
-  xx = 0;
-  a = b = c = d = e = f = g = 3;
-  console.log("回数"+xx);
-  console.log(a);
-
-}
-
 
 
 </script>
 </head>
 <body>
 <div id="hako" class="hako">
-   <img class="img" src="movs5/back.JPG" alt="背景" title="背景">
+   <img id="img" class="img" src="movs5/back1.JPG" alt="背景" title="背景">
    <video class="movs" id="movs" autoplay muted></video>
   <span id="button" class="button">
    <input id="hidari"  class="a" type="button"  value="◀" onclick="clickDisplay(1)">
