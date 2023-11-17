@@ -22,6 +22,14 @@ html,body{
     font-size: 36px;
 }
 
+.c{
+	font-weight: bold;
+}
+
+.d{
+	font-weight: bold;
+}
+
 
 .hako{
 	
@@ -53,39 +61,41 @@ html,body{
 }
 
 #hidari{
-  width:80px;height:80px;
-  position:absolute;left:20px;
+  width:70px;height:99.2%;
+  position:absolute;left:0;
   z-index:1;
-  top: 50%;
+  top: 0;
+  opacity: 50%;
 }
 
 
 #migi{
-  width:80px;height:80px;
+  width:70px;height:99.2%;
   position:absolute;
-  right:20px;
+  right:0;
   z-index:1;
-  top: 50%;
+  top: 0;
+  opacity: 50%;
 }
 
 #koushin{
-	display: block;
+	position: absolute;
 	width:80px;height:80px;
-	margin: auto;
-  cursor:pointer;
-  z-index:1;
+	top: 88%;
+	left: 44%;
+    z-index:1;
+    opacity: 50%;
+
 }
 
 #return{
-	display: block;
+	position: absolute;
 	width:80px;height:80px;
-	margin: auto;
-  cursor:pointer;
-  z-index:1;
+	top: 88%;
+	right: 44%;
+    z-index:1;
+    opacity: 50%;
 }
-
-
-
 
 </style>
 <script>
@@ -426,9 +436,10 @@ function clickDisplay(num) {
   <span id="button" class="button">
    <input id="hidari"  class="a" type="button"  value="◀" onclick="clickDisplay(1)">
    <input id="migi"  class="b" type="button"  value="▶" onclick="clickDisplay(2)">
+   <input id="koushin" class="c" type="button"  value="スタート" onclick= "getmovs()">
+   <input id="return" class="d" type="button"  value="戻る" onclick="koushin()">
   </span>
 </div>
-<input id="koushin" type="button"  value="スタート" onclick= "getmovs()">
-<input id="return" type="button"  value="戻る" onclick="koushin()">
+
 </body>
 </html>
