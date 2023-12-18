@@ -2,443 +2,191 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>映像の盛り上がり体験</title>
+<title></title>
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"/>
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="keywords" content="">
 <meta name="description" content="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
 <style type="text/css">
+
 html,body{
-	margin:0;
-}
-
-.a{
-    font-size: 36px;
-}
-
-.b{
-    font-size: 36px;
-}
-
-.c{
-	font-weight: bold;
-}
-
-.d{
-	font-weight: bold;
+	margin: 0;
+  background-color: #000000;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position:center ;
+   height: 100%;
 }
 
 
-.hako{
-	
-	position: relative;
-	left: 0;
-	top: 0;
-	width: 100%;
+.dodai{
+  display: none;
+  height: 100%;
 }
 
-.hako img{
-	position: relative;
-	left: 0;
-	top: 0;
-	width: 100%;
+
+.wrap{
+height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-.hako video{
-	
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-}
-
-.hako button{
-	position: relative;
-	width: 100%;
-	top: 50%;
-}
-
-#hidari{
-  width:70px;height:99.2%;
-  position:absolute;left:0;
-  z-index:1;
+@media (min-width: 100px) {
+  .wrap {
+    height: 100%;
+  }
+#movs{
+	-o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  height: 120%;
+  width: 120%;
   top: 0;
-  opacity: 50%;
+  left: 0;
+  z-index: 1;
+
 }
 
-
-#migi{
-  width:70px;height:99.2%;
-  position:absolute;
-  right:0;
-  z-index:1;
-  top: 0;
-  opacity: 50%;
+.title{
+	position: relative;
+	z-index: 5;
+	width: 565px;
+	top: 19%;
+	left: 16%;
 }
 
-#koushin{
+hr{
 	position: absolute;
-	width:80px;height:80px;
-	top: 88%;
-	left: 44%;
-    z-index:1;
-    opacity: 50%;
+	color: #FFF;
+	width: 850px;
+	border: 1.5px #FFF solid;
+	top: 43%;
+  left: 16%;
+	z-index: 7;
+	
+}
+
+.bun{
+position: relative;
+font-size: 20px;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+top: 34%;
+left: 16%;
+text-shadow: 2px  2px 5px #000000;
+}
+
+
+.hako2{
+	position: relative;
+	top: 39%;
+	left: 15.5%;
+	z-index: 10;
+	width: 100%;
 
 }
 
-#return{
-	position: absolute;
-	width:80px;height:80px;
-	top: 88%;
-	right: 44%;
-    z-index:1;
-    opacity: 50%;
+.button{
+   position: relative;
+    width: 275px;
+    /*コレ*/background: transparent;
+    border: 8px double #FFF;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 22px;
+   
+    font-family:serif;
+    text-shadow: 2px  2px 5px #000000;
+    box-shadow: 2px  2px 5px #000000;
+     margin: 0.5%;
+     transition: all .3s;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.button2{
+   position: relative;
+    width: 275px;
+    /*コレ*/background: transparent;
+    border: 8px double #FFF;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 22px;
+    font-family:serif;
+    text-shadow: 2px  2px 5px #000000;
+    box-shadow: 2px  2px 5px #000000;
+    margin: 0.5%;
+    transition: all .3s;
+}
+
+.button2:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.bun1{
+  position: absolute;
+font-size: 14px;
+font-family: serif;
+color: #FFF;
+z-index: 7;
+bottom: 0;
+right: 8px;
 }
 
 </style>
 <script>
-
-var videoElem;
-
 onload = function(){
 	sizeChosei();
 	$(window).resize(function(){
 		sizeChosei();
 	});
-	
-	videoElem = document.getElementById('movs');
-	
-	document.addEventListener('click', clickDisplay);
-	
-	setInterval(loop, 42);
 }
-
-function koushin(){
-  location.reload();
-}
-	
 function sizeChosei(){
 	$("html").css({"font-size":(window.innerWidth/100)+"px"});
 }
 
-function loop(){
-	//console.log(videoElem.currentTime);
-}
 
-var a;
-
-var b;
-var c;
-
-var d;
-var e;
-var f;
-var g;
-
-
-var xx = 0;
-var yy;
-var zz;
-var vv;
-
-function getmovs(){
-  a = b = c = d = e = f = g = 3;
-  let ar = ['movs5/sippai1op.mp4', 'movs5/sippai1.mp4'];
-  let obj = document.getElementById("movs");
-  a = Math.floor(Math.random() * ar.length);
-  obj.src = ar[a];
-  console.log(a)
-  console.log(b)
-  xx = 0;
-
-  document.getElementById("img").src = "movs5/back.JPG";
-}
-
-
-
-var aa;
-var bb;
-var cc;
-var dd;
-
-
-
-function clickDisplay(num) {
-
-	if(3.08 <= videoElem.currentTime && videoElem.currentTime < 4.58 && xx == 0){
-     if(a === 1){
-        if (num === 2) {
-            console.log("migi: "+videoElem.currentTime);
-            let now = videoElem.currentTime;
-
-        	let arr = ['movs5/sippai2.mp4', 'movs5/sippai2g.mp4'];
-            let x = document.getElementById("movs");
-            b = Math.floor(Math.random() * arr.length);
-            x.src = arr[b];
-            console.log(b)
-
-            
-			      videoElem.src = x.src;
-			      videoElem.currentTime = now - 3.08;
-                  console.log(videoElem.currentTime);
-
-                  xx = xx + 1;
-
-        } else if (num == 1 ) {
-
-            console.log("hidari: "+videoElem.currentTime);
-                  let now = videoElem.currentTime;
-			      videoElem.src = "movs5/sippai1-2.mp4";
-			      videoElem.currentTime = now - 3.08;
-			      console.log(videoElem.currentTime);
-
-			      xx = 0;
-			      a = b = c = d = e = f = g = 3;
-                  
-
-			    }//完了
-
-    }
-    else if(a === 0){
-    	if (num === 1) {
-                  console.log("hidari: "+videoElem.currentTime);
-                  let now = videoElem.currentTime;
-
-    		let arrr = ['movs5/sippai2op.mp4', 'movs5/sippai2opg.mp4'];
-            let y = document.getElementById("movs");
-            c = Math.floor(Math.random() * arrr.length);
-            y.src = arrr[c];
-            console.log(c)
-
-			      videoElem = y;
-			      videoElem.currentTime = now - 3.083;
-			      console.log(videoElem.currentTime);
-
-			      xx = xx + 1;
-
-        } else if (num == 2 ) {
-            console.log("migi: "+videoElem.currentTime);
-            let now = videoElem.currentTime;
-			      videoElem.src = "movs5/sippai1-2op.mp4";
-			      videoElem.currentTime = now - 3.083;
-			      console.log(videoElem.currentTime);
-
-			      xx = 0;
-			      a = b = c = d = e = f = g = 3;
-			    }//完了
-    }
-    console.log(videoElem.src);
-    console.log("回数"+xx);
-  }
-    
-  if(13.125 <= videoElem.currentTime && videoElem.currentTime < 14.625 && xx == 1){
-  	if(a === 1 && b === 0){
-		    if(num === 2){
-			console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-			videoElem.src = "movs5/sippai2-2.mp4";
-			videoElem.currentTime = now - 13.125;
-			console.log(videoElem.currentTime);
-
-			xx = 0;
-			a = b = c = d = e = f = g = 3;
-
-        }else if(num == 1 ){
-            console.log("hidari: "+videoElem.currentTime);
-		    let now = videoElem.currentTime;
-
-            let arrrr = ['movs5/sippai3.mp4', 'movs5/sippai3-g.mp4'];
-            let z = document.getElementById("movs");
-            d = Math.floor(Math.random() * arrrr.length);
-            z.src = arrrr[d];
-            console.log(d)
-
-			videoElem = z
-			videoElem.currentTime = now - 13.125;
-			console.log(videoElem.currentTime);
-
-			xx = xx + 1;
-			
-		}//完了
-    }
-    else if(b === 1){
-    	if(num === 2){
-    		console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-
-　　　　　　 let arrrrr = [ 'movs5/sippai3g-g.mp4','movs5/sippai3g.mp4'];
-            let h = document.getElementById("movs");
-            e = Math.floor(Math.random() * arrrrr.length);
-            h.src = arrrrr[e];
-            console.log(e)
-
-			videoElem = h;
-			videoElem.currentTime = now - 13.125;
-            console.log(videoElem.currentTime);
-
-            xx = xx + 1;
-
-        }else if(num == 1 ){
-		    console.log("hidari: "+videoElem.currentTime);
-		    let now = videoElem.currentTime;
-			videoElem.src = "movs5/sippai2-2g.mp4";
-			videoElem.currentTime = now - 13.125;
-			console.log(videoElem.currentTime);
-
-			xx = 0;
-			a = b = c = d = e = f = g = 3;
-		}//完了
-    }
-    else if(c === 0){
-    	if(num == 2){
-            console.log("migi: "+videoElem.currentTime);
-    	    let now = videoElem.currentTime;
-
-            let rarrrr = ['movs5/sippai3op-g.mp4','movs5/sippai3op.mp4',];
-            let i = document.getElementById("movs");
-            f = Math.floor(Math.random() * rarrrr.length);
-            i.src = rarrrr[f];
-            console.log(f)
-
-			videoElem = i;
-			videoElem.currentTime = now - 13.125;
-            console.log(videoElem.currentTime);
-
-            xx = xx + 1;
-
-		}//完了
-		if(num == 1){
-    	    console.log("hidari: "+videoElem.currentTime);
-    	    let now = videoElem.currentTime;
-			videoElem.src = "movs5/sippai2-2op.mp4";
-			videoElem.currentTime = now - 11.333;
-			console.log(videoElem.currentTime);
-
-			xx = 0;
-			a = b = c = d = e = f = g = 3;
-        }
-    }
-    else if(c === 1){
-    	if(num == 2){
-    	    console.log("migi: "+videoElem.currentTime);
-    	    let now = videoElem.currentTime;
-
-			videoElem.src = "movs5/sippai2-2opg.mp4";
-			videoElem.currentTime = now - 13.125;
-			console.log(videoElem.currentTime);
-
-			xx = 0;
-			a = b = c = d = e = f = g = 3;
-		}
-		if(num == 1){
-            console.log("hidari: "+videoElem.currentTime);
-    	    let now = videoElem.currentTime;
-
-			let rrarrr = ['movs5/sippai3opg.mp4', 'movs5/sippai3opg-g.mp4'];
-            let j = document.getElementById("movs");
-            g = Math.floor(Math.random() * rrarrr.length);
-            j.src = rrarrr[g];
-            console.log(g)
-
-			videoElem = j;
-			videoElem.currentTime = now - 13.125;
-			console.log(videoElem.currentTime);
-
-			xx = xx + 1;
-        }
-    }
-    console.log(videoElem.src);
-    console.log("回数"+xx);
-    
-  }
-
-  if(14.041 <= videoElem.currentTime && videoElem.currentTime < 15.541 && xx == 2){
-  	if(a === 1 && d === 0 || e === 1){
-		if(num == 2 ){
-			console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-
-			videoElem.src = "movs5/sippai3-2.mp4";//
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-        }else if(num == 1 ){
-		    console.log("hidari: "+videoElem.currentTime);
-		    let now = videoElem.currentTime;
-			videoElem.src = "movs5/seikou.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-		}
-    }else if(a === 1 && d === 1 || e === 0){
-        if(num == 2 ){
-			console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-			videoElem.src = "movs5/seikoug.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-
-        }else if(num == 1 ){
-		    console.log("hidari: "+videoElem.currentTime);
-		    let now = videoElem.currentTime;
-			videoElem.src = "movs5/sippai3-2g.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-		}
-    }else if(f === 0 || g === 1){
-        if(num == 2 ){
-			console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-			videoElem.src = "movs5/sippai3-2op-g.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-        }else if(num == 1 ){
-		    console.log("hidari: "+videoElem.currentTime);
-		    let now = videoElem.currentTime;
-			videoElem.src = "movs5/seikouop-g.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-		}
-    }else if(f === 1 || g === 0){
-        if(num == 2 ){
-			console.log("migi: "+videoElem.currentTime);
-			let now = videoElem.currentTime;
-			videoElem.src = "movs5/seikouop.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-        }else if(num == 1 ){
-		    console.log("hidari: "+videoElem.currentTime);
-		    let now = videoElem.currentTime;
-			videoElem.src = "movs5/sippai3-2op.mp4";
-			videoElem.currentTime = now - 14.041;
-			console.log(videoElem.currentTime);
-		}
-    }
-    console.log(videoElem.src)
-    xx = 0;
-    a = b = c = d = e = f = g = 3;
-    console.log("回数"+xx);
-    console.log(a);
-}
-	
-	return false; 
-}
-
-
-
+$(window).on("load", function() {
+    $('.dodai').fadeIn(1000); 
+});
 
 </script>
 </head>
 <body>
-<div id="hako" class="hako">
-   <img id="img" class="img" src="movs5/back1.JPG" alt="背景" title="背景">
-   <video class="movs" id="movs" autoplay muted></video>
-  <span id="button" class="button">
-   <input id="hidari"  class="a" type="button"  value="◀" onclick="clickDisplay(1)">
-   <input id="migi"  class="b" type="button"  value="▶" onclick="clickDisplay(2)">
-   <input id="koushin" class="c" type="button"  value="スタート" onclick= "getmovs()">
-   <input id="return" class="d" type="button"  value="戻る" onclick="koushin()">
-  </span>
+
+<div class="dodai">
+
+<div class="wrap" id="wrap">
+<video class="movs" id="movs" src="movs/back3.mp4" webkit-playsinline playsinline muted autoplay loop></video>
+
+<img class="title" id ="title" src="movs/title.PNG">
+
+<hr>
+
+<p class="bun" id ="bun">映像を見て、盛り上がりを覚える。</br>日常の中のふとした感動体験を追求し、「体験装置」として形に起こしてみた。</p>
+
+<div id="hako2" class="hako2">
+<input id="button" class="button" type="button"  value="体験を始める" onclick="location.href='file:///C:/xampp/htdocs/moriagari/game.html'">
+<input id="button2" class="button2" type="button"  value="体験装置について" onclick="location.href='file:///C:/xampp/htdocs/moriagari/setumei2.html'">
+</div>
+
+<p class="bun1" id ="bun1">武蔵野美術大学　視覚伝達デザイン学科</p>
+
+</div>
+
+
 </div>
 
 </body>
