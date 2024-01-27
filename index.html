@@ -76,7 +76,7 @@ font-size: 20px;
 font-family: serif;
 color: #FFF;
 z-index: 7;
-top: 34%;
+top: 30%;
 left: 16%;
 text-shadow: 2px  2px 5px #000000;
 }
@@ -84,10 +84,18 @@ text-shadow: 2px  2px 5px #000000;
 
 .hako2{
 	position: relative;
-	top: 39%;
-	left: 15.5%;
+	top: 0;
+	left: 0;
 	z-index: 10;
 	width: 100%;
+
+}
+.hako3{
+  position: relative;
+  top: 35%;
+  left: 15.5%;
+  z-index: 10;
+  width: 100%;
 
 }
 
@@ -134,6 +142,28 @@ text-shadow: 2px  2px 5px #000000;
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+.button3{
+   position: absolute;
+    width: 570px;
+    height: 60px;
+    /*コレ*/background: transparent;
+    border: 5px double #FFF;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 22px;
+    font-family:serif;
+    text-shadow: 2px  2px 5px #000000;
+    box-shadow: 2px  2px 5px #000000;
+    margin: 0.5%;
+    transition: all .3s;
+}
+
+.button3:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 
 .bun1{
   position: absolute;
@@ -145,13 +175,39 @@ bottom: 0;
 right: 8px;
 }
 
+
+#link{
+  position: absolute;
+font-size: 18px;
+font-family: serif;
+color: #FFF;
+z-index: 8;
+bottom: 0;
+left: 20%;
+top: 85%;
+}
+
 </style>
 <script>
+
+
+
+
+
+
+
+
 onload = function(){
 	sizeChosei();
 	$(window).resize(function(){
 		sizeChosei();
 	});
+
+
+
+
+
+
 }
 function sizeChosei(){
 	$("html").css({"font-size":(window.innerWidth/100)+"px"});
@@ -162,6 +218,15 @@ $(window).on("load", function() {
     $('.dodai').fadeIn(1000); 
 });
 
+
+
+
+
+
+
+
+
+
 </script>
 </head>
 <body>
@@ -169,17 +234,19 @@ $(window).on("load", function() {
 <div class="dodai">
 
 <div class="wrap" id="wrap">
-<video class="movs" id="movs" src="movs/back4.mp4" webkit-playsinline playsinline muted autoplay loop></video>
+<video class="movs" id="movs" src="movs/back3.mp4" webkit-playsinline playsinline muted autoplay loop></video>
 
-<img class="title" id ="title" src="movs/title.PNG">
+<img class="title" id ="title" src="movs/title2.PNG">
 
 <hr>
 
-<p class="bun" id ="bun">映像を見て、盛り上がりを覚える。</br>日常の中のふとした感動体験を追求し、「体験装置」として形に起こしてみた。</p>
-
+<p class="bun" id ="bun">映像を見て、躍動感を抱く。</br>日常の中のふとした感動体験を追求し、「体験装置」として形に起こしてみた。</p>
+<div id="hako3" class="hako3">
 <div id="hako2" class="hako2">
 <input id="button" class="button" type="button"  value="体験を始める" onclick="location.href='https://miwan-07.github.io/jouhouBzennki3/'">
 <input id="button2" class="button2" type="button"  value="体験装置について" onclick="location.href='https://miwan-07.github.io/jouhouBzennki2/'">
+</div>
+<input id="button3" class="button3" type="button"  value="ポートフォリオサイトへ" onclick="location.href='https://www.vivivit.com/f_miwako_pf'">
 </div>
 
 <p class="bun1" id ="bun1">武蔵野美術大学　視覚伝達デザイン学科</p>
